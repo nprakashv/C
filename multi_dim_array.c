@@ -17,5 +17,13 @@ int main()
 		for (j = 0; j < 3; j++)
 			printf("%d\n", *(*(array + i) + j));
 
+	/* Take pointer to array */
+	int (*ptr)[3] = array;
+
+	printf("\nPrinting array elements using pointer to an array\n");
+	for (i = 0; i < 2; i++)
+		for (j = 0; j < 3; j++)
+			printf("%d\n", *(*ptr + j + (i * 3)));
+
 	return SUCCESS;
 }
