@@ -33,11 +33,12 @@ int main(int argc, char *argv[])
 		return FAIL;
 	}
 
-	int arr[argc - 1], i, ret = 0;
+	int size = argc - 1;
+	int arr[size], i, ret = 0;
 
 	/* Initialise the array as per user inputs */
-	for ( i = 0; i < argc; i++)
-		arr[i] = atoi(argv[i]);
+	for ( i = 0; i < size; i++)
+		arr[i] = atoi(argv[i + 1]);
 
 	ret = num_odd(sizeof(arr)/sizeof(arr[0]), arr);
 
