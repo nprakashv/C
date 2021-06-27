@@ -3,13 +3,14 @@
 
 #define BUF_SIZE	1024
 
+/* Structure representing fifo */
 struct fifo {
 	char buffer[BUF_SIZE];	// Represents fifo of size BUF_SIZE
 	int wp;			// Write pointer
 	int rp;			// Read pointer
 };
 
-static struct fifo *fifo;
+static struct fifo *fifo = NULL;
 
 /* Function to check if fifo is full or not */
 int fifo_full()
@@ -61,6 +62,10 @@ int main(int argc, char *argv[])
 
 	/* allocate fifo and set rp, wp to zero */
 	fifo = (struct fifo *)malloc(sizeof(struct fifo));
+	if (!fifo) {
+		printf("Memory allocation for fifo failed\n");
+		return FAIL;
+	}
 	fifo->wp = 0;
 	fifo->rp = 0;
 
