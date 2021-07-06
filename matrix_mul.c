@@ -91,5 +91,8 @@ int main(int argc, char *argv[])
 	/* Perform matrix multiplication */
 	matrix_mul(arr1, arr2, row1, col2, col1);
 
+	free(arr1);
+	free(arr2);
+
 	return SUCCESS;
 }
